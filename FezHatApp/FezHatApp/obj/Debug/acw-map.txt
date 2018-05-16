@@ -1,0 +1,12 @@
+FezHatApp.MainActivity, FezHatApp;md5ce9ccdb7f784b769d42413b06b4ca3fc.MainActivity
+FezHatApp.MainActivity, FezHatApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5ce9ccdb7f784b769d42413b06b4ca3fc.MainActivity
+FezHatApp.MainActivity;md5ce9ccdb7f784b769d42413b06b4ca3fc.MainActivity
+fezhatapp.MainActivity;md5ce9ccdb7f784b769d42413b06b4ca3fc.MainActivity
+Android.Things.UserDriver.Location.IGnssStateListenerImplementor, Xamarin.Android.Things;mono.com.google.android.things.userdriver.location.GnssStateListenerImplementor
+Android.Things.UserDriver.Location.IGnssStateListenerImplementor, Xamarin.Android.Things, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;mono.com.google.android.things.userdriver.location.GnssStateListenerImplementor
+Android.Things.UserDriver.Location.IGnssStateListenerImplementor;mono.com.google.android.things.userdriver.location.GnssStateListenerImplementor
+mono.com.google.android.things.userdriver.location.GnssStateListenerImplementor;mono.com.google.android.things.userdriver.location.GnssStateListenerImplementor
+Android.Things.Update.IStatusListenerImplementor, Xamarin.Android.Things;mono.com.google.android.things.update.StatusListenerImplementor
+Android.Things.Update.IStatusListenerImplementor, Xamarin.Android.Things, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;mono.com.google.android.things.update.StatusListenerImplementor
+Android.Things.Update.IStatusListenerImplementor;mono.com.google.android.things.update.StatusListenerImplementor
+mono.com.google.android.things.update.StatusListenerImplementor;mono.com.google.android.things.update.StatusListenerImplementor
