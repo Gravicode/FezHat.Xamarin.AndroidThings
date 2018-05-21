@@ -107,7 +107,26 @@ class MonoPackageManager_Resources {
 	public static final String[] Assemblies = new String[]{
 		/* We need to ensure that "FezHatApp.dll" comes first in this list. */
 		"FezHatApp.dll",
+		"DotNetty.Buffers.dll",
+		"DotNetty.Codecs.dll",
+		"DotNetty.Codecs.Mqtt.dll",
+		"DotNetty.Common.dll",
+		"DotNetty.Handlers.dll",
+		"DotNetty.Transport.dll",
 		"FezHatLib.dll",
+		"Microsoft.Azure.Amqp.dll",
+		"Microsoft.Azure.Devices.Client.dll",
+		"Microsoft.Azure.Devices.Shared.dll",
+		"Microsoft.Data.Edm.dll",
+		"Microsoft.Data.OData.dll",
+		"Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+		"Microsoft.Extensions.Logging.Abstractions.dll",
+		"Microsoft.Extensions.Logging.dll",
+		"Microsoft.WindowsAzure.Storage.dll",
+		"Newtonsoft.Json.dll",
+		"System.Configuration.ConfigurationManager.dll",
+		"System.Runtime.CompilerServices.Unsafe.dll",
+		"System.Spatial.dll",
 		"Xamarin.Android.Things.dll",
 	};
 	public static final String[] Dependencies = new String[]{

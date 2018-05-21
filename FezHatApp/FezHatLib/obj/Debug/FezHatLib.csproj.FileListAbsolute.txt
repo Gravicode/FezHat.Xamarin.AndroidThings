@@ -11,3 +11,17 @@ c:\users\mifma\documents\visual studio 2017\Projects\FezHatApp\FezHatLib\obj\Deb
 c:\users\mifma\documents\visual studio 2017\Projects\FezHatApp\FezHatLib\obj\Debug\android\bin\FezHatLib.FezHatLib.apk
 c:\users\mifma\documents\visual studio 2017\Projects\FezHatApp\FezHatLib\obj\Debug\R.cs.flag
 c:\users\mifma\documents\visual studio 2017\Projects\FezHatApp\FezHatLib\obj\Debug\uploadflags.txt
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatLib\bin\Debug\FezHatLib.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatLib\bin\Debug\FezHatLib.pdb
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatLib\bin\Debug\FezHatLib.FezHatLib.apk
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatLib\bin\Debug\FezHatLib.FezHatLib-Signed.apk
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatLib\bin\Debug\Xamarin.Android.Things.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatLib\obj\Debug\FezHatLib.csprojResolveAssemblyReference.cache
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatLib\obj\Debug\FezHatLib.csproj.CoreCompileInputs.cache
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatLib\obj\Debug\FezHatLib.csproj.CopyComplete
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatLib\obj\Debug\FezHatLib.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatLib\obj\Debug\FezHatLib.pdb
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatLib\obj\Debug\android\bin\FezHatLib.FezHatLib.apk
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatLib\obj\Debug\R.cs.flag
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatLib\obj\Debug\uploadflags.txt
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatLib\bin\Debug\FezHatLib.dll.mdb

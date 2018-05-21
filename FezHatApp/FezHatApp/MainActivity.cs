@@ -6,6 +6,10 @@ using Android.Util;
 using System.Threading.Tasks;
 using GHIElectronics.UWP.Shields;
 using System.Threading;
+using Microsoft.Azure.Devices.Client;
+using Newtonsoft.Json;
+using System.Text;
+using System.Collections.Generic;
 
 namespace FezHatApp
 {
@@ -33,7 +37,7 @@ namespace FezHatApp
             base.OnCreate(bundle);
 
             Log.Info(TAG, "Starting BlinkActivity");
-
+            var DeviceIoT = new AzureIoT("HostName=BMCHub.azure-devices.net;DeviceId=AndroidThingsDevice1;SharedAccessKey=jNVYlHP+x/O7NdMT2gY32zrC1RBEl0UCUoxtraXJ9pE=");
 
             try
             {
@@ -48,7 +52,9 @@ namespace FezHatApp
                 var Button22TextBox = this.FindViewById<TextView>(Resource.Id.Button22TextBox);
                 var AnalogTextBox = this.FindViewById<TextView>(Resource.Id.AnalogTextBox);
                 var LedsTextBox = this.FindViewById<TextView>(Resource.Id.LedsTextBox);
-                Task.Run(() =>
+                var StatusTextBox = this.FindViewById<TextView>(Resource.Id.StatusTextBox);
+
+                Task.Run(async() =>
                 {
                     while (true)
                     {
@@ -117,9 +123,15 @@ namespace FezHatApp
                         }
 
                         count++;
-                        Log.Info(TAG, "iterasi");
-
-                        Thread.Sleep(100);
+                        Log.Info(TAG, $"iterasi-{count}");
+                        var ItemJson = new { Temp = hat.GetTemperature(), Light = hat.GetLightLevel(), X = x, Y=y, Z=z };
+                        var res = await DeviceIoT.SendDeviceToCloudMessagesAsync(JsonConvert.SerializeObject(ItemJson));
+                        RunOnUiThread(() =>
+                        {
+                            if(res)
+                                StatusTextBox.Text = $"send data to azure iot - {DateTime.Now.ToString()}";
+                        });
+                            Thread.Sleep(2000);
                     }
                 });
             }
@@ -129,5 +141,54 @@ namespace FezHatApp
             }
         }
     }
+
+    public class AzureIoT
+    {
+        public AzureIoT(string ConnectionString)
+        {
+            Console.WriteLine("Starting Send Telemetry to Azure Iot Hub. Ctrl-C to exit.\n");
+            s_connectionString = ConnectionString;
+            // Connect to the IoT hub using the MQTT protocol
+            s_deviceClient = DeviceClient.CreateFromConnectionString(s_connectionString, TransportType.Amqp);
+
+
+        }
+        private static DeviceClient s_deviceClient;
+
+        // The device connection string to authenticate the device with your IoT hub.
+        // Using the Azure CLI:
+        // az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyDotnetDevice --output table
+        private static string s_connectionString { set; get; }
+
+        // Async method to send simulated telemetry
+        public  async Task<bool> SendDeviceToCloudMessagesAsync(string Message, Dictionary<string, string> Properties = null)
+        {
+            try
+            {
+                var message = new Microsoft.Azure.Devices.Client.Message(Encoding.ASCII.GetBytes(Message));
+
+                // Add a custom application property to the message.
+                // An IoT hub can filter on these properties without access to the message body.
+                if (Properties != null)
+                {
+                    foreach (var item in Properties)
+                    {
+                        message.Properties.Add(item.Key, item.Value);
+                    }
+                }
+
+                // Send the tlemetry message
+                await s_deviceClient.SendEventAsync(message);
+                Console.WriteLine("{0} > Sending message: {1}", DateTime.Now, Message);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
+
+}
+
 

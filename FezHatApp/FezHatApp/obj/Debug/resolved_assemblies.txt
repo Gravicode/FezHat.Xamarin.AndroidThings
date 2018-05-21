@@ -1,25 +1,120 @@
-c:\users\mifma\documents\visual studio 2017\Projects\FezHatApp\FezHatApp\obj\Debug\android\assets\FezHatApp.dll
-c:\users\mifma\documents\visual studio 2017\Projects\FezHatApp\FezHatApp\obj\Debug\android\assets\FezHatLib.dll
-c:\users\mifma\documents\visual studio 2017\Projects\FezHatApp\FezHatApp\obj\Debug\android\assets\Java.Interop.dll
-c:\users\mifma\documents\visual studio 2017\Projects\FezHatApp\FezHatApp\obj\Debug\android\assets\Mono.Android.dll
-c:\users\mifma\documents\visual studio 2017\Projects\FezHatApp\FezHatApp\obj\Debug\android\assets\mscorlib.dll
-c:\users\mifma\documents\visual studio 2017\Projects\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Core.dll
-c:\users\mifma\documents\visual studio 2017\Projects\FezHatApp\FezHatApp\obj\Debug\android\assets\System.dll
-c:\users\mifma\documents\visual studio 2017\Projects\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Runtime.dll
-c:\users\mifma\documents\visual studio 2017\Projects\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Xml.dll
-c:\users\mifma\documents\visual studio 2017\Projects\FezHatApp\FezHatApp\obj\Debug\android\assets\Xamarin.Android.Things.dll
-c:\users\mifma\documents\visual studio 2017\Projects\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Threading.dll
-c:\users\mifma\documents\visual studio 2017\Projects\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Collections.dll
-c:\users\mifma\documents\visual studio 2017\Projects\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Collections.Concurrent.dll
-c:\users\mifma\documents\visual studio 2017\Projects\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Reflection.dll
-c:\users\mifma\documents\visual studio 2017\Projects\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Diagnostics.Debug.dll
-c:\users\mifma\documents\visual studio 2017\Projects\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Linq.dll
-c:\users\mifma\documents\visual studio 2017\Projects\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Runtime.InteropServices.dll
-c:\users\mifma\documents\visual studio 2017\Projects\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Runtime.Extensions.dll
-c:\users\mifma\documents\visual studio 2017\Projects\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Reflection.Extensions.dll
-c:\users\mifma\documents\visual studio 2017\Projects\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Reflection.Primitives.dll
-c:\users\mifma\documents\visual studio 2017\Projects\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Net.Http.dll
-c:\users\mifma\documents\visual studio 2017\Projects\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Runtime.Serialization.dll
-c:\users\mifma\documents\visual studio 2017\Projects\FezHatApp\FezHatApp\obj\Debug\android\assets\System.ServiceModel.Internals.dll
-c:\users\mifma\documents\visual studio 2017\Projects\FezHatApp\FezHatApp\obj\Debug\android\assets\Mono.Security.dll
-c:\users\mifma\documents\visual studio 2017\Projects\FezHatApp\FezHatApp\obj\Debug\android\assets\System.ComponentModel.Composition.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\FezHatApp.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\DotNetty.Buffers.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\DotNetty.Codecs.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\DotNetty.Codecs.Mqtt.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\DotNetty.Common.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\DotNetty.Handlers.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\DotNetty.Transport.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\FezHatLib.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\Java.Interop.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\Microsoft.Azure.Amqp.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\Microsoft.Azure.Devices.Client.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\Microsoft.Azure.Devices.Shared.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\Microsoft.CSharp.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\Microsoft.Data.Edm.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\Microsoft.Data.OData.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\Microsoft.Extensions.Logging.Abstractions.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\Microsoft.Extensions.Logging.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\Microsoft.WindowsAzure.Storage.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\Mono.Android.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\mscorlib.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\Newtonsoft.Json.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Configuration.ConfigurationManager.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Core.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\System.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\System.IO.Compression.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Net.Http.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Runtime.CompilerServices.Unsafe.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Runtime.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Spatial.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Xml.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Xml.Linq.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Resources.ResourceManager.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\System.IO.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Threading.Tasks.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Text.Encoding.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Diagnostics.Debug.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Collections.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Runtime.Extensions.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Threading.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Linq.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Net.Primitives.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Reflection.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Collections.Concurrent.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Net.NetworkInformation.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Diagnostics.Tracing.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Console.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Security.Cryptography.X509Certificates.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Net.Security.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Globalization.Extensions.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Text.RegularExpressions.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Net.Sockets.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Net.NameResolution.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Reflection.TypeExtensions.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Reflection.Extensions.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\Xamarin.Android.Things.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Runtime.InteropServices.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Reflection.Primitives.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Runtime.Serialization.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\System.ServiceModel.Internals.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\netstandard.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Data.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Numerics.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Transactions.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\Mono.Data.Tds.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\Mono.Security.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Diagnostics.StackTrace.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\System.IO.Compression.FileSystem.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\System.ComponentModel.Composition.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Runtime.Serialization.Xml.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Runtime.Serialization.Primitives.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Security.Cryptography.Algorithms.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Security.SecureString.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Web.Services.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Xml.XPath.XDocument.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Xml.ReaderWriter.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Globalization.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Linq.Expressions.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Text.Encoding.Extensions.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\System.ComponentModel.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Xml.XDocument.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\System.IO.FileSystem.Primitives.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\System.IO.FileSystem.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Security.Cryptography.Primitives.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Runtime.Numerics.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Xml.XmlDocument.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\System.ComponentModel.TypeConverter.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Dynamic.Runtime.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Runtime.Serialization.Formatters.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\System.ObjectModel.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Security.Cryptography.ProtectedData.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\android\assets\System.Security.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\linksrc\de\Microsoft.Data.Edm.resources.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\linksrc\es\Microsoft.Data.Edm.resources.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\linksrc\fr\Microsoft.Data.Edm.resources.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\linksrc\it\Microsoft.Data.Edm.resources.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\linksrc\ja\Microsoft.Data.Edm.resources.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\linksrc\ko\Microsoft.Data.Edm.resources.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\linksrc\ru\Microsoft.Data.Edm.resources.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\linksrc\zh-Hans\Microsoft.Data.Edm.resources.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\linksrc\zh-Hant\Microsoft.Data.Edm.resources.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\linksrc\de\Microsoft.Data.OData.resources.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\linksrc\es\Microsoft.Data.OData.resources.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\linksrc\fr\Microsoft.Data.OData.resources.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\linksrc\it\Microsoft.Data.OData.resources.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\linksrc\ja\Microsoft.Data.OData.resources.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\linksrc\ko\Microsoft.Data.OData.resources.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\linksrc\ru\Microsoft.Data.OData.resources.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\linksrc\zh-Hans\Microsoft.Data.OData.resources.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\linksrc\zh-Hant\Microsoft.Data.OData.resources.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\linksrc\de\System.Spatial.resources.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\linksrc\es\System.Spatial.resources.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\linksrc\fr\System.Spatial.resources.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\linksrc\it\System.Spatial.resources.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\linksrc\ja\System.Spatial.resources.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\linksrc\ko\System.Spatial.resources.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\linksrc\ru\System.Spatial.resources.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\linksrc\zh-Hans\System.Spatial.resources.dll
+C:\experiment\FezHat.Xamarin.AndroidThings\FezHatApp\FezHatApp\obj\Debug\linksrc\zh-Hant\System.Spatial.resources.dll

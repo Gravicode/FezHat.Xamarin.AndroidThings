@@ -26,6 +26,7 @@ namespace FezHatApp
 		
 		public static void UpdateIdValues()
 		{
+			global::Microsoft.Azure.Amqp.Resource.String.ApplicationName = global::FezHatApp.Resource.String.ApplicationName;
 		}
 		
 		public partial class Attribute
@@ -62,6 +63,9 @@ namespace FezHatApp
 			// aapt resource value: 0x7f040000
 			public const int LightTextBox = 2130968576;
 			
+			// aapt resource value: 0x7f040007
+			public const int StatusTextBox = 2130968583;
+			
 			// aapt resource value: 0x7f040001
 			public const int TempTextBox = 2130968577;
 			
@@ -95,7 +99,10 @@ namespace FezHatApp
 		{
 			
 			// aapt resource value: 0x7f030000
-			public const int app_name = 2130903040;
+			public const int ApplicationName = 2130903040;
+			
+			// aapt resource value: 0x7f030001
+			public const int app_name = 2130903041;
 			
 			static String()
 			{
