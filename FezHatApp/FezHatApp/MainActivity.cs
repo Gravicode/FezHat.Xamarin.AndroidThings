@@ -22,6 +22,16 @@ namespace FezHatApp
 
         private bool next;
         private int i;
+        TextView LightTextBox ;
+        TextView TempTextBox ;
+        TextView AccelTextBox;
+        TextView Button18TextBox ;
+        TextView Button22TextBox ;
+        TextView AnalogTextBox ;
+        TextView LedsTextBox ;
+        TextView StatusTextBox ;
+
+
         private void Setup()
         {
             SetContentView(Resource.Layout.Main);
@@ -38,21 +48,21 @@ namespace FezHatApp
 
             Log.Info(TAG, "Starting BlinkActivity");
             var DeviceIoT = new AzureIoT("HostName=BMCHub.azure-devices.net;DeviceId=AndroidThingsDevice1;SharedAccessKey=jNVYlHP+x/O7NdMT2gY32zrC1RBEl0UCUoxtraXJ9pE=");
-
+            DeviceIoT.DeviceMethodInvoke += DeviceIoT_DeviceMethodInvoke;
             try
             {
 
                 Setup();
                 int count = 0;
+                LightTextBox = this.FindViewById<TextView>(Resource.Id.LightTextBox);
+                TempTextBox = this.FindViewById<TextView>(Resource.Id.TempTextBox);
+                AccelTextBox = this.FindViewById<TextView>(Resource.Id.AccelTextBox);
+                Button18TextBox = this.FindViewById<TextView>(Resource.Id.Button18TextBox);
+                Button22TextBox = this.FindViewById<TextView>(Resource.Id.Button22TextBox);
+                AnalogTextBox = this.FindViewById<TextView>(Resource.Id.AnalogTextBox);
+                LedsTextBox = this.FindViewById<TextView>(Resource.Id.LedsTextBox);
+                StatusTextBox = this.FindViewById<TextView>(Resource.Id.StatusTextBox);
 
-                var LightTextBox = this.FindViewById<TextView>(Resource.Id.LightTextBox);
-                var TempTextBox = this.FindViewById<TextView>(Resource.Id.TempTextBox);
-                var AccelTextBox = this.FindViewById<TextView>(Resource.Id.AccelTextBox);
-                var Button18TextBox = this.FindViewById<TextView>(Resource.Id.Button18TextBox);
-                var Button22TextBox = this.FindViewById<TextView>(Resource.Id.Button22TextBox);
-                var AnalogTextBox = this.FindViewById<TextView>(Resource.Id.AnalogTextBox);
-                var LedsTextBox = this.FindViewById<TextView>(Resource.Id.LedsTextBox);
-                var StatusTextBox = this.FindViewById<TextView>(Resource.Id.StatusTextBox);
 
                 Task.Run(async() =>
                 {
@@ -140,6 +150,58 @@ namespace FezHatApp
                 Log.Error(TAG, "Error on PeripheralIO API", e);
             }
         }
+
+        private void DeviceIoT_DeviceMethodInvoke(string Method, string Message, EventArgs e)
+        {
+            RunOnUiThread(() =>
+            {
+                switch (Method)
+                {
+                    case "ChangeColor":
+                        {
+                            var SelColor = FezHat.Color.Black;
+                            var data = JsonConvert.DeserializeObject<ColorData>(Message);
+                            switch (data.ColorName.ToLower())
+                            {
+                                case "red":
+                                    SelColor = FezHat.Color.Red;
+                                    break;
+                                case "green":
+                                    SelColor = FezHat.Color.Green;
+                                    break;
+                                case "blue":
+                                    SelColor = FezHat.Color.Blue;
+                                    break;
+                                case "yellow":
+                                    SelColor = FezHat.Color.Yellow;
+                                    break;
+                                case "white":
+                                    SelColor = FezHat.Color.White;
+                                    break;
+
+                                default:
+
+                                    break;
+                            }
+                            hat.D2.Color = SelColor;
+                            hat.D3.Color = SelColor;
+                        }
+                        break;
+                    case "RotateServo":
+                        {
+                            var data = JsonConvert.DeserializeObject<ServoData>(Message);
+                            hat.S1.Position = data.Position;
+                            hat.S2.Position = data.Position;
+
+                        }
+                        break;
+                    default:
+                        break;
+                }   
+                    StatusTextBox.Text = $"method {Method} called -> {Message}";
+            });
+
+        }
     }
 
     public class AzureIoT
@@ -148,11 +210,20 @@ namespace FezHatApp
         {
             Console.WriteLine("Starting Send Telemetry to Azure Iot Hub. Ctrl-C to exit.\n");
             s_connectionString = ConnectionString;
+
             // Connect to the IoT hub using the MQTT protocol
             s_deviceClient = DeviceClient.CreateFromConnectionString(s_connectionString, TransportType.Amqp);
+            // Create a handler for the direct method call
+            s_deviceClient.SetMethodHandlerAsync("ChangeColor", InvokeDeviceMethod, null).Wait();
+            s_deviceClient.SetMethodHandlerAsync("RotateServo", InvokeDeviceMethod, null).Wait();
 
 
         }
+
+        public event DeviceMethodHandler DeviceMethodInvoke;
+        public EventArgs e = null;
+        public delegate void DeviceMethodHandler(string Method, string Message, EventArgs e);
+
         private static DeviceClient s_deviceClient;
 
         // The device connection string to authenticate the device with your IoT hub.
@@ -187,8 +258,40 @@ namespace FezHatApp
                 return false;
             }
         }
-    }
 
+        // Handle the direct method call
+        private Task<MethodResponse> InvokeDeviceMethod(MethodRequest methodRequest, object userContext)
+        {
+            try
+            {
+                var data = Encoding.UTF8.GetString(methodRequest.Data);
+
+                // Check the payload is a single integer value
+
+                // Acknowlege the direct method call with a 200 success message
+                string result = "{\"result\":\"Executed direct method: " + methodRequest.Name + "\"}";
+                if (DeviceMethodInvoke != null)
+                {
+                    DeviceMethodInvoke(methodRequest.Name, data, null);
+                }
+                return Task.FromResult(new MethodResponse(Encoding.UTF8.GetBytes(result), 200));
+            }
+            catch(Exception ex)
+            {
+                string result = "{\"result\":\""+ex.Message+"\"}";
+                return Task.FromResult(new MethodResponse(Encoding.UTF8.GetBytes(result), 400));
+
+            }
+        }
+    }
+    public class ColorData
+    {
+        public string ColorName { get; set; }
+    }
+    public class ServoData
+    {
+        public int Position { get; set; }
+    }
 }
 
 
