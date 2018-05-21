@@ -49,6 +49,7 @@ namespace FezHatApp
             Log.Info(TAG, "Starting BlinkActivity");
             var DeviceIoT = new AzureIoT("HostName=BMCHub.azure-devices.net;DeviceId=AndroidThingsDevice1;SharedAccessKey=jNVYlHP+x/O7NdMT2gY32zrC1RBEl0UCUoxtraXJ9pE=");
             DeviceIoT.DeviceMethodInvoke += DeviceIoT_DeviceMethodInvoke;
+            DeviceIoT.IncomingMessage += DeviceIoT_IncomingMessage;
             try
             {
 
@@ -151,6 +152,13 @@ namespace FezHatApp
             }
         }
 
+        private void DeviceIoT_IncomingMessage(string Message)
+        {
+            RunOnUiThread(() =>
+            {
+                StatusTextBox.Text = $"Incoming message : {Message}";
+            });
+        }
         private void DeviceIoT_DeviceMethodInvoke(string Method, string Message, EventArgs e)
         {
             RunOnUiThread(() =>
@@ -216,13 +224,16 @@ namespace FezHatApp
             // Create a handler for the direct method call
             s_deviceClient.SetMethodHandlerAsync("ChangeColor", InvokeDeviceMethod, null).Wait();
             s_deviceClient.SetMethodHandlerAsync("RotateServo", InvokeDeviceMethod, null).Wait();
-
-
+            Task ReceivingThread = new Task(new Action(ReceiveC2dAsync));
+            ReceivingThread.Start();
         }
 
         public event DeviceMethodHandler DeviceMethodInvoke;
         public EventArgs e = null;
         public delegate void DeviceMethodHandler(string Method, string Message, EventArgs e);
+
+        public event IncomingMessageHandler IncomingMessage;
+        public delegate void IncomingMessageHandler(string Message);
 
         private static DeviceClient s_deviceClient;
 
@@ -281,6 +292,26 @@ namespace FezHatApp
                 string result = "{\"result\":\""+ex.Message+"\"}";
                 return Task.FromResult(new MethodResponse(Encoding.UTF8.GetBytes(result), 400));
 
+            }
+        }
+        private async void ReceiveC2dAsync()
+        {
+            while (true)
+            {
+                var receivedMessage = await s_deviceClient.ReceiveAsync();
+                if (receivedMessage == null) continue;
+
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                var msg = Encoding.ASCII.GetString(receivedMessage.GetBytes());
+                Console.WriteLine("Received message: {0}", msg);
+                Console.ResetColor();
+
+                await s_deviceClient.CompleteAsync(receivedMessage);
+                if (IncomingMessage != null)
+                {
+                    IncomingMessage(msg);
+                }
+                Thread.Sleep(500);
             }
         }
     }
