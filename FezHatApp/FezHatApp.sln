@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FezHatApp", "FezHatApp\FezH
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FezHatLib", "FezHatLib\FezHatLib.csproj", "{966E85D4-F03C-4607-AC4F-8EA0BD6CBF33}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeviceTwinSetup", "DeviceTwinSetup\DeviceTwinSetup.csproj", "{C85B1E5E-5674-4485-B673-9960DA40FB59}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +25,10 @@ Global
 		{966E85D4-F03C-4607-AC4F-8EA0BD6CBF33}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{966E85D4-F03C-4607-AC4F-8EA0BD6CBF33}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{966E85D4-F03C-4607-AC4F-8EA0BD6CBF33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C85B1E5E-5674-4485-B673-9960DA40FB59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C85B1E5E-5674-4485-B673-9960DA40FB59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C85B1E5E-5674-4485-B673-9960DA40FB59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C85B1E5E-5674-4485-B673-9960DA40FB59}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

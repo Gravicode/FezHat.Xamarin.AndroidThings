@@ -23,4 +23,10 @@
       </intent-filter>
     </receiver>
   </application>
+  <intent-filter>
+    <action android:name="android.intent.action.Main" />
+    <action android:name="android.intent.category.Home" />
+    <action android:name="android.intent.category.DEFAULT" />
+    <category android:name="android.intent.category.LAUNCHER" />
+  </intent-filter>
 </manifest>

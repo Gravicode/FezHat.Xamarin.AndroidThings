@@ -11,13 +11,15 @@ using Newtonsoft.Json;
 using System.Text;
 using System.Collections.Generic;
 
+using Microsoft.Azure.Devices.Shared;
+
 namespace FezHatApp
 {
     [Activity(Label = "FezHatApp", MainLauncher = true)]
     public class MainActivity : Activity
     {
         private const string TAG = "MainActivity";
-
+        static int TELEMETRY_DELAY = 2000;
         private FezHat hat;
 
         private bool next;
@@ -50,6 +52,7 @@ namespace FezHatApp
             var DeviceIoT = new AzureIoT("HostName=BMCHub.azure-devices.net;DeviceId=AndroidThingsDevice1;SharedAccessKey=jNVYlHP+x/O7NdMT2gY32zrC1RBEl0UCUoxtraXJ9pE=");
             DeviceIoT.DeviceMethodInvoke += DeviceIoT_DeviceMethodInvoke;
             DeviceIoT.IncomingMessage += DeviceIoT_IncomingMessage;
+            
             try
             {
 
@@ -142,7 +145,7 @@ namespace FezHatApp
                             if(res)
                                 StatusTextBox.Text = $"send data to azure iot - {DateTime.Now.ToString()}";
                         });
-                            Thread.Sleep(2000);
+                            Thread.Sleep(TELEMETRY_DELAY);
                     }
                 });
             }
@@ -203,6 +206,13 @@ namespace FezHatApp
 
                         }
                         break;
+                    case "TelemetryFrequency":
+                        {
+                            var data = Message.Split(':');
+                            TimeSpan ts = new TimeSpan(int.Parse(data[0]), int.Parse(data[1]), int.Parse(data[2]));
+                            TELEMETRY_DELAY = (int)ts.TotalMilliseconds;
+                        }
+                        break;
                     default:
                         break;
                 }   
@@ -214,6 +224,22 @@ namespace FezHatApp
 
     public class AzureIoT
     {
+        #region vars     
+        public event DeviceMethodHandler DeviceMethodInvoke;
+        public EventArgs e = null;
+        public delegate void DeviceMethodHandler(string Method, string Message, EventArgs e);
+
+        public event IncomingMessageHandler IncomingMessage;
+        public delegate void IncomingMessageHandler(string Message);
+        static TwinCollection reportedProperties = new TwinCollection();
+        private static DeviceClient s_deviceClient;
+        
+        // The device connection string to authenticate the device with your IoT hub.
+        // Using the Azure CLI:
+        // az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyDotnetDevice --output table
+        private static string s_connectionString { set; get; }
+        #endregion
+        #region constructor
         public AzureIoT(string ConnectionString)
         {
             Console.WriteLine("Starting Send Telemetry to Azure Iot Hub. Ctrl-C to exit.\n");
@@ -226,24 +252,117 @@ namespace FezHatApp
             s_deviceClient.SetMethodHandlerAsync("RotateServo", InvokeDeviceMethod, null).Wait();
             Task ReceivingThread = new Task(new Action(ReceiveC2dAsync));
             ReceivingThread.Start();
+            Console.WriteLine("Retrieving twin");
+            //set device twin
+            var x = s_deviceClient.GetTwinAsync().GetAwaiter().GetResult();
+            ReportConnectivity();
+            s_deviceClient.SetDesiredPropertyUpdateCallbackAsync(OnDesiredPropertyChanged, null).Wait();
+
         }
+        #endregion
+        #region Report Device Twin
+        public async void ReportConnectivity()
+        {
+            try
+            {
+                Console.WriteLine("Sending connectivity data as reported property");
+                //update connectivity
+                TwinCollection connectivity = new TwinCollection();
+                connectivity["type"] = "wifi";
+                reportedProperties["connectivity"] = connectivity;
+               
+                //update frequency
+                Console.WriteLine("Report initial telemetry config:");
+                TwinCollection telemetryConfig = new TwinCollection();
 
-        public event DeviceMethodHandler DeviceMethodInvoke;
-        public EventArgs e = null;
-        public delegate void DeviceMethodHandler(string Method, string Message, EventArgs e);
+                telemetryConfig["configId"] = "0";
+                telemetryConfig["sendFrequency"] = "0:0:2";
+                reportedProperties["telemetryConfig"] = telemetryConfig;
+                Console.WriteLine(JsonConvert.SerializeObject(reportedProperties));
 
-        public event IncomingMessageHandler IncomingMessage;
-        public delegate void IncomingMessageHandler(string Message);
+                await s_deviceClient.UpdateReportedPropertiesAsync(reportedProperties);
 
-        private static DeviceClient s_deviceClient;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine();
+                Console.WriteLine("Error in sample: {0}", ex.Message);
+            }
+        }
+        #endregion
+        #region desired prop changed
+        private async Task OnDesiredPropertyChanged(TwinCollection desiredProperties, object userContext)
+        {
+            try
+            {
+                Console.WriteLine("Desired property change:");
+                Console.WriteLine(JsonConvert.SerializeObject(desiredProperties));
 
-        // The device connection string to authenticate the device with your IoT hub.
-        // Using the Azure CLI:
-        // az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyDotnetDevice --output table
-        private static string s_connectionString { set; get; }
+                var currentTelemetryConfig = reportedProperties["telemetryConfig"];
+                var desiredTelemetryConfig = desiredProperties["telemetryConfig"];
 
+                if ((desiredTelemetryConfig != null) && (desiredTelemetryConfig["configId"] != currentTelemetryConfig["configId"]))
+                {
+                    Console.WriteLine("\nInitiating config change");
+                    currentTelemetryConfig["status"] = "Pending";
+                    currentTelemetryConfig["pendingConfig"] = desiredTelemetryConfig;
+
+                    await s_deviceClient.UpdateReportedPropertiesAsync(reportedProperties);
+
+                    CompleteConfigChange();
+                }
+            }
+            catch (AggregateException ex)
+            {
+                foreach (Exception exception in ex.InnerExceptions)
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("Error in sample: {0}", exception);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine();
+                Console.WriteLine("Error in sample: {0}", ex.Message);
+            }
+        }
+        public async void CompleteConfigChange()
+        {
+            try
+            {
+                var currentTelemetryConfig = reportedProperties["telemetryConfig"];
+
+                
+                Console.WriteLine("\nCompleting config change");
+                currentTelemetryConfig["configId"] = currentTelemetryConfig["pendingConfig"]["configId"];
+                currentTelemetryConfig["sendFrequency"] = currentTelemetryConfig["pendingConfig"]["sendFrequency"];
+                currentTelemetryConfig["status"] = "Success";
+                currentTelemetryConfig["pendingConfig"] = null;
+                if (DeviceMethodInvoke != null)
+                {
+                    DeviceMethodInvoke("TelemetryFrequency", currentTelemetryConfig["sendFrequency"].ToString(), null);
+                }
+                await s_deviceClient.UpdateReportedPropertiesAsync(reportedProperties);
+                Console.WriteLine("Config change complete \n");
+            }
+            catch (AggregateException ex)
+            {
+                foreach (Exception exception in ex.InnerExceptions)
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("Error in sample: {0}", exception);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine();
+                Console.WriteLine("Error in sample: {0}", ex.Message);
+            }
+        }
+        #endregion
+        #region Send device telemetry
         // Async method to send simulated telemetry
-        public  async Task<bool> SendDeviceToCloudMessagesAsync(string Message, Dictionary<string, string> Properties = null)
+        public async Task<bool> SendDeviceToCloudMessagesAsync(string Message, Dictionary<string, string> Properties = null)
         {
             try
             {
@@ -269,7 +388,8 @@ namespace FezHatApp
                 return false;
             }
         }
-
+        #endregion
+        #region if direct method called
         // Handle the direct method call
         private Task<MethodResponse> InvokeDeviceMethod(MethodRequest methodRequest, object userContext)
         {
@@ -294,6 +414,8 @@ namespace FezHatApp
 
             }
         }
+        #endregion
+        #region if receive message from cloud
         private async void ReceiveC2dAsync()
         {
             while (true)
@@ -314,7 +436,9 @@ namespace FezHatApp
                 Thread.Sleep(500);
             }
         }
+        #endregion
     }
+    #region Models
     public class ColorData
     {
         public string ColorName { get; set; }
@@ -323,6 +447,7 @@ namespace FezHatApp
     {
         public int Position { get; set; }
     }
+    #endregion
 }
 
 
